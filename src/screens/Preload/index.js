@@ -76,7 +76,7 @@ const Preload = ({navigation}) => {
   return (
     <Container>
       <Image
-        source={require('../../assets/images/logo.png')}
+        source={require('../../assets/images/logo.jpg')}
         accessibilityLabel="logo do app"
       />
     </Container>

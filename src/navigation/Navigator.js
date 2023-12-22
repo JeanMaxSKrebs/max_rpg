@@ -17,7 +17,7 @@ import PerfilUsuario from '../screens/PerfilUsuario';
 
 //jogo
 import Jogo from '../screens/Jogo';
-import EscolhaPalavra from '../screens/Jogo/escolha';
+import Criar_Personagem from '../screens/Jogo/Criar_Personagem';
 
 import { COLORS } from '../assets/colors';
 import { StyleSheet, StatusBar } from 'react-native';
@@ -98,7 +98,7 @@ const Navigator = () => (
       <Stack.Screen component={Chats} name="Chats" />
       <Stack.Screen component={Chat} name="Chat" />
       <Stack.Screen component={Jogo} name="Jogo" />
-      <Stack.Screen component={EscolhaPalavra} name="EscolhaPalavra" />
+      <Stack.Screen component={Criar_Personagem} name="Criar_Personagem" />
       <Stack.Screen
         component={PerfilUsuario}
         name="PerfilUsuario"

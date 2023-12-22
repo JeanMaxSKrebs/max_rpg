@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "68264887428",
-    "project_id": "projeto-termax",
-    "storage_bucket": "projeto-termax.appspot.com"
+    "project_number": "833177196919",
+    "project_id": "max-rpg-d4423",
+    "storage_bucket": "max-rpg-d4423.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:68264887428:android:dbaeb367e9ad182b706ed1",
+        "mobilesdk_app_id": "1:833177196919:android:90a35f7d6996da923fa972",
         "android_client_info": {
-          "package_name": "com.projeto_termax"
+          "package_name": "com.max_rpg"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCvgUmOvB3RyRerldDGvf0R6GQ7mjVsSxk"
+          "current_key": "AIzaSyA-vKD8woMgvkVF1VPAjKcdAf-qgZAWYBU"
         }
       ],
       "services": {

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "projeto_termax.app"
-               BlueprintName = "projeto_termax"
-               ReferencedContainer = "container:projeto_termax.xcodeproj">
+               BuildableName = "max_rpg.app"
+               BlueprintName = "max_rpg"
+               ReferencedContainer = "container:max_rpg.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "projeto_termaxTests.xctest"
-               BlueprintName = "projeto_termaxTests"
-               ReferencedContainer = "container:projeto_termax.xcodeproj">
+               BuildableName = "max_rpgTests.xctest"
+               BlueprintName = "max_rpgTests"
+               ReferencedContainer = "container:max_rpg.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "projeto_termax.app"
-            BlueprintName = "projeto_termax"
-            ReferencedContainer = "container:projeto_termax.xcodeproj">
+            BuildableName = "max_rpg.app"
+            BlueprintName = "max_rpg"
+            ReferencedContainer = "container:max_rpg.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "projeto_termax.app"
-            BlueprintName = "projeto_termax"
-            ReferencedContainer = "container:projeto_termax.xcodeproj">
+            BuildableName = "max_rpg.app"
+            BlueprintName = "max_rpg"
+            ReferencedContainer = "container:max_rpg.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

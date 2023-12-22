@@ -1,10 +1,10 @@
 export const COLORS = {
-  primary: '#000000',
-  primaryShadow: '#666666',
+  primary: '#3971AC',
+  primaryShadow: '#876D61',
   secondary: '#222222',
-  tertiary: '#444444',
-  background: '#EFEFE5',
-  primaryDark: '#666666',
+  tertiary: '#876D61',
+  background: '#fffff9',
+  primaryDark: '#1E3B59',
   // secondaryDark: '#007e8f' (parece ser igual ao primary)
   soMuchAccent: '#105A38',
   accent: '#3D634A',

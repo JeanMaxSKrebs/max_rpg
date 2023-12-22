@@ -15,11 +15,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath ('com.google.gms:google-services:4.3.15')
-        classpath("com.android.tools.build:gradle:7.1.1")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("de.undercouch:gradle-download-task:5.0.1")
-        classpath("com.android.tools.build:gradle:7.3.1")
-        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath "com.google.gms:google-services:4.3.15"
+        classpath "com.android.tools.build:gradle:7.3.1"
+        classpath "com.facebook.react:react-native-gradle-plugin:7.1.0" // Adjust the version to the appropriate one
+        classpath "de.undercouch:gradle-download-task:5.0.1"
     }
 }

@@ -1,4 +1,4 @@
-package com.projeto_termax;
+package com.max_rpg;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "projeto_termax";
+    return "max_rpg";
   }
 
   /**

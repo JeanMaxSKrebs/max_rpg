@@ -4,6 +4,7 @@ import { COLORS } from '../assets/colors';
 import LogoutButton from '../components/LogoutButton';
 import MeuButton from '../components/MeuButton';
 import { CommonActions } from '@react-navigation/native';
+import { Image } from './Preload/styles';
 
 
 const Home = ({ navigation }) => {
@@ -29,16 +30,16 @@ const Home = ({ navigation }) => {
         navigation.dispatch(
           CommonActions.navigate({
             name: dados[0],
-            params: { },
+            params: {},
           }),
         );
         break;
-        case 'EscolhaPalavra':
+      case 'Criar_Personagem':
 
         navigation.dispatch(
           CommonActions.navigate({
             name: dados[0],
-            params: { },
+            params: {},
           }),
         );
         break;
@@ -58,15 +59,22 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.texto}>TERMAX</Text>
-      <MeuButton cor={COLORS.accentSecondary} style={styles.button}
-        texto={'JOGAR'}
-        onClick={() => routeFor(['Jogo'])}
-      />
-      <MeuButton cor={COLORS.accentSecondary} style={styles.button}
-        texto={'ESCOLHER PALAVRA'}
-        onClick={() => routeFor(['EscolhaPalavra'])}
-      />
+        <Image
+          style={styles.imagem}
+          source={require('../assets/images/logo.jpg')}
+          accessibilityLabel={'logo do app'}
+        />
+        <MeuButton cor={COLORS.accentSecondary}
+          texto={'Jogar'}
+          onClick={() => routeFor(['Jogo'])}
+          width={'50%'}
+        />
+        <MeuButton cor={COLORS.accentSecondary}
+          texto={'Criar Personagem'}
+          onClick={() => routeFor(['Criar_Personagem'])}
+          width={'50%'}
+          fontSize={20}
+        />
     </View>
   );
 };
@@ -78,6 +86,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  content: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: COLORS.primaryDark,
+    borderRadius: 15,
+    borderWidth: 5,
+    padding: 20
+  },
+  imagem: {
+    width: 200,
+    height: 200,
+    borderRadius: 15
   },
   texto: {
     textAlign: 'center', // Add this line to center align the text

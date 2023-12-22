@@ -43,6 +43,9 @@ export const AuthUserProvider = ({ children }) => {
         // console.log('email e senha')
         // console.log(email, senha)
         signIn(email, senha); // Tenta fazer login com as credenciais armazenadas
+        console.log('logou');
+        console.log(email);
+        console.log(senha);
       }
     } catch (e) {
       console.error('AuthUserProvider, retrieveUserSession: ' + e);

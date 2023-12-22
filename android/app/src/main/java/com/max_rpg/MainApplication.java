@@ -1,4 +1,4 @@
-package com.projeto_termax;
+package com.max_rpg;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

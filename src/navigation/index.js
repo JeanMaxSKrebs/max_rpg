@@ -4,6 +4,8 @@ import { ProfileProvider } from '../context/ProfileProvider';
 import { ChatProvider } from '../context/ChatProvider';
 import { ApiProvider } from '../context/ApiProvider';
 
+import { PersonagemProvider } from '../context/PersonagemProvider';
+
 import { ThemeProvider } from "styled-components";
 
 import Navigator from './Navigator';
@@ -29,11 +31,13 @@ export default function Providers() {
     <AuthUserProvider>
       <ApiProvider>
         <ProfileProvider>
-          <ChatProvider>
-            <ThemeProvider theme={theme}>
-              <Navigator />
-            </ThemeProvider>
-          </ChatProvider>
+          <PersonagemProvider>
+            <ChatProvider>
+              <ThemeProvider theme={theme}>
+                <Navigator />
+              </ThemeProvider>
+            </ChatProvider>
+          </PersonagemProvider>
         </ProfileProvider>
       </ApiProvider>
     </AuthUserProvider>

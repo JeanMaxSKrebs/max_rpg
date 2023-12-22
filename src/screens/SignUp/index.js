@@ -5,6 +5,7 @@ import { Body, TextInput } from './styles';
 import auth from "@react-native-firebase/auth";
 import { CommonActions } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
+import loading from '../../components/Loading';
 
 const SignUp = ({ navigation }) => {
     const [nome, setNome] = useState('');
@@ -12,62 +13,54 @@ const SignUp = ({ navigation }) => {
     const [senha, setSenha] = useState('');
     const [confirmaSenha, setConfirmaSenha] = useState('');
 
-    const cadastrar = () => {
+    const [loading, setLoading] = useState(false);
+
+    const cadastrar = async () => {
         if (nome !== '' && email !== '' && senha !== '' && confirmaSenha !== '') {
             if (senha === confirmaSenha) {
-                auth()
-                    .createUserWithEmailAndPassword(email, senha)
-                    .then(() => {
-                        let userFirebase = auth().currentUser;
-                        let user = {};
-                        user.nome = nome;
-                        user.email = email;
-                        console.log(user);
+                try {
+                    setLoading(true);
+                    await auth().createUserWithEmailAndPassword(email, senha);
+                    let userFirebase = auth().currentUser;
+                    console.log(userFirebase);
+                    let user = {};
+                    user.nome = nome;
+                    user.email = email;
+                    // console.log(user);
+                    // console.log('SignUp Cadastrar: User Added!1');
+                    await userFirebase.sendEmailVerification();
+                    Alert.alert(
+                        'Informação',
+                        'Foi Enviado um email para: ' + email + 'para verificação',
+                    );
+                    await firestore().collection('users').doc(userFirebase.uid).set(user);
+                    // console.log('SignUp Cadastrar: User Added!1');
+                    setLoading(false);
 
-                        firestore()
-                            .collection('users')
-                            .doc(userFirebase)
-                            .set(user)
-                            .then(() => {
-                                console.log('SignUp Cadastrar: User Added!1');
-                                userFirebase
-                                    .sendEmailVerification()
-                                    .then(() => {
-                                        console.log('SignUp Cadastrar: User Added!2');
-                                        Alert.alert('Informação', 'Foi Enviado um email para: ' + email + 'para verificação',
-                                        );
-                                        navigation.dispatch(
-                                            CommonActions.reset({
-                                                index: 0,
-                                                routes: [{ name: 'SignIn' }],
-                                            }),
-                                        );
-                                    })
-                                    .catch((e) => {
-                                        console.log('SignUp: cadastrar(01):' + e);
-                                    });
-                            })
-                            .catch((e) => {
-                                console.log('SignUp: cadastrar(02):' + e);
-                            });
-                    })
-                    .catch((e) => {
-                        console.log('SignUp: cadastrar(03):' + e + "  " + e.code);
-                        switch (e.code) {
-                            case 'auth/email-already-in-use':
-                                Alert.alert('Erro', 'Email já esta em uso.');
-                                break;
-                            case 'auth/operation-not-allowed':
-                                Alert.alert('Erro', 'Problemas ao fazer o cadastro.');
-                                break;
-                            case 'auth/invalid-email':
-                                Alert.alert('Erro', 'Email Inválido.');
-                                break;
-                            case 'auth/weak-password':
-                                Alert.alert('Erro', 'Senha Fraca. Digite uma senha Forte.');
-                                break;
-                        }
-                    })
+                    navigation.dispatch(
+                        CommonActions.reset({
+                            index: 0,
+                            routes: [{ name: 'SignIn' }],
+                        }),
+                    );
+                } catch (e) {
+                    setLoading(false);
+                    console.log('SignUp: cadastrar:' + e);
+                    switch (e.code) {
+                        case 'auth/email-already-in-use':
+                            Alert.alert('Erro', 'Email já esta em uso.');
+                            break;
+                        case 'auth/operation-not-allowed':
+                            Alert.alert('Erro', 'Problemas ao fazer o cadastro.');
+                            break;
+                        case 'auth/invalid-email':
+                            Alert.alert('Erro', 'Email Inválido.');
+                            break;
+                        case 'auth/weak-password':
+                            Alert.alert('Erro', 'Senha Fraca. Digite uma senha Forte.');
+                            break;
+                    }
+                }
             } else {
                 Alert.alert('Erro', 'As Senhas Diferem');
             }

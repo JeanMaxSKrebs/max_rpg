@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState, useContext} from 'react';
-import {TextInput} from 'react-native';
+import React, { useState, useContext } from 'react';
+import { TextInput } from 'react-native';
 import {
   SafeAreaView,
   ScrollView,
@@ -11,14 +11,14 @@ import {
   Alert,
 } from 'react-native';
 import MeuButton from '../../components/MeuButton';
-import {COLORS} from '../../assets/colors';
+import { COLORS } from '../../assets/colors';
 import auth from '@react-native-firebase/auth';
-import {CommonActions} from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import Loading from '../../components/Loading';
 import { AuthUserContext } from '../../context/AuthUserProvider'
 
-const SignIn = ({navigation}) => {
+const SignIn = ({ navigation }) => {
   // console.log(app);
   // console.log(auth);
   const [email, setEmail] = useState('');
@@ -57,29 +57,26 @@ const SignIn = ({navigation}) => {
         console.log('logou');
         console.log(email);
         console.log(senha);
-        // setEmail('');
-        // setSenha('');
-//////
-        // setLoading(true);
-        // // await auth().signInWithEmailAndPassword('jeanmaxskrebs@gmail.com', 'Teste123');
-        // await auth().signInWithEmailAndPassword(email, senha);
-        // await storeUserSession(email, senha);
-        // //para ver se o usuario fica setado corretamente
-        // await getUser(senha);
-        
-        
-        // setLoading(false);
-        // console.log('saiu');
+
+        setLoading(true);
+        // await auth().signInWithEmailAndPassword('jeanmaxskrebs@gmail.com', 'Teste123');
+        await auth().signInWithEmailAndPassword(email, senha);
+        await storeUserSession(email, senha);
+        //para ver se o usuario fica setado corretamente
+        await getUser(senha);
+
+
+        setLoading(false);
+        console.log('saiu');
         // if (!auth().currentUser.emailVerified) {
         //   Alert.alert('Erro', 'Você deve verificar seu email para prosseguir.');
         //   return;
         // }
-////////////
 
         navigation.dispatch(
           CommonActions.reset({
             index: 0,
-            routes: [{name: 'AppStack'}],
+            routes: [{ name: 'AppStack' }],
           }),
         );
       } catch (e) {
@@ -106,11 +103,11 @@ const SignIn = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.divSuperior}>
           <Image
             style={styles.image}
-            source={require('../../assets/images/logo.png')}
+            source={require('../../assets/images/logo.jpg')}
             accessibilityLabel={'logo do app'}
           />
           <TextInput
@@ -147,10 +144,10 @@ const SignIn = ({navigation}) => {
           </View>
         </View>
       </ScrollView>
-      </SafeAreaView>
-      );
-    };
-    // {loading && <Loading />}
+    </SafeAreaView>
+  );
+};
+// {loading && <Loading />}
 
 export default SignIn;
 
@@ -179,6 +176,7 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
     margin: 5,
+    borderRadius: 15
   },
   input: {
     width: '90%',
