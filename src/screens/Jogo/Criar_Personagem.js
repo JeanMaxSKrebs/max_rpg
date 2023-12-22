@@ -4,9 +4,10 @@ import MeuButton from '../../components/MeuButton';
 import { COLORS } from '../../assets/colors';
 import { ToastAndroid } from 'react-native';
 import { PersonagemContext } from '../../context/PersonagemProvider'; // Certifique-se de ajustar o caminho do import conforme necessário
+import { CommonActions } from '@react-navigation/native';
 
 
-const Criar_Personagem = (navigation) => {
+const Criar_Personagem = ({navigation}) => {
   const { salvarPersonagem } = useContext(PersonagemContext);
 
   const [nome, setNome] = useState('');

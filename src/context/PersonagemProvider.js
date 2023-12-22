@@ -5,10 +5,34 @@ import { AuthUserContext } from '../context/AuthUserProvider'; // Certifique-se 
 export const PersonagemContext = createContext();
 
 export const PersonagemProvider = ({ children }) => {
+    const { user } = useContext(AuthUserContext);
+
     const [personagem, setPersonagem] = useState(null);
 
-    const salvarPersonagem = (novoPersonagem) => {
-        setPersonagem(novoPersonagem);
+    const salvarPersonagem = async (novoPersonagem) => {
+        try {
+            console.log('user');
+            console.log(user);
+            console.log('novoPersonagem');
+            console.log(novoPersonagem);
+            // Assuming user has an ID, replace 'user.id' with your actual user ID
+            const userUID = user.uid;
+            const path = `users/${userUID}/personagens/${novoPersonagem.nome}`;
+
+            await firestore().doc(path).set(
+                {
+                    nome: novoPersonagem.nome,
+                    atributos: novoPersonagem.atributos
+                },
+                { merge: true }
+            );
+
+            setPersonagem(novoPersonagem);
+
+            return true;
+        } catch (error) {
+            console.error('Erro ao salvar personagem:', error.message);
+        }
     };
 
     return (
